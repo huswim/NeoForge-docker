@@ -1,0 +1,13 @@
+services:
+  server:
+    build: NeoForge-server
+    image: neoforge-server:latest
+    ports:
+      - 25568:25565
+    stdin_open: true # io
+    volumes:
+      - neoforge-data:/neoforge
+    restart: unless-stopped
+
+volumes:
+  neoforge-data:
