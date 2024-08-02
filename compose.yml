@@ -9,5 +9,14 @@ services:
       - neoforge-data:/neoforge
     restart: unless-stopped
 
+  backup:
+    build: world-backup
+    image: world-backup:latest
+    volumes:
+      - neoforge-data:/data
+      - neoforge-world-bak:/bak
+    restart: unless-stopped
+
 volumes:
   neoforge-data:
+  neoforge-world-bak:
