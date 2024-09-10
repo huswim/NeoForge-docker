@@ -6,17 +6,7 @@ services:
       - 25568:25565
     stdin_open: true # io
     volumes:
-      - neoforge-data:/neoforge
+      - type: bind
+        source: ./world
+        target: /neoforge/world
     restart: unless-stopped
-
-  backup:
-    build: world-backup
-    image: world-backup:latest
-    volumes:
-      - neoforge-data:/data
-      - neoforge-world-bak:/bak
-    restart: unless-stopped
-
-volumes:
-  neoforge-data:
-  neoforge-world-bak:
